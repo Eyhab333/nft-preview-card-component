@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | NFT preview card component</title>
+    <!--=================== normalize ======================-->
+    <!-- <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css" /> -->
+    <!--=================== google fonts ===================-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      h3 {
+        color: white;
+        margin-bottom: 20px;
+        font-weight: 600;
+      }
+
+      h4,
+      .ethereum {
+        color: hsl(178, 100%, 50%);
+        font-weight: 400;
+        font-size: 11px;
+      }
+
+      hr {
+        width: 100%;
+        margin: 20px 0 2px 0;
+        border: 0;
+        border-top: 1px solid hsl(215, 32%, 27%);
+        box-sizing: content-box;
+        height: 0;
+        overflow: visible;
+      }
+
+      p {
+        color: hsl(215, 51%, 70%);
+        font-weight: 300;
+        font-size: 14px;
+      }
+
+      span {
+        color: white;
+      }
+
+      body {
+        background-color: hsl(217, 54%, 11%);
+        height: 100vh;
+        width: 100vw;
+        font-family: "Outfit", sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .main-container {
+        border: 22px solid hsl(217, 52%, 10.5%);
+        background: hsl(217, 52%, 10.5%);
+        padding: 3px;
+        border-radius: 19px;
+        width: 27%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .card {
+        background-color: hsl(216, 50%, 16%);
+        border-radius: 11px;
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        -webkit-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+        -moz-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+        box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
+      }
+
+      .main-image {
+        width: 90%;
+        height: auto;
+        margin-top: 11px;
+        border-radius: 11px;
+      }
+
+      .under-theImage {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 19px 9px 20px 19px;
+      }
+
+      .ethereum {
+        color: hsl(178, 100%, 50%);
+        width: 11%;
+        margin-right: 3px;
+      }
+
+      .mydays {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .days {
+        margin-right: 3px;
+        width: 17%;
+      }
+
+      .last-paragraph {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 20px;
+      }
+
+      .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+        margin-bottom: 10px;
+      }
+
+      .image-avatar {
+        width: 12%;
+        height: auto;
+        border: 1px solid white;
+        border-radius: 50%;
+        margin-right: 1rem;
+      }
+
+
+      @media (max-width: 375px) {
+        .main-container {
+        border: 22px solid hsl(217, 52%, 10.5%);
+        background: hsl(217, 52%, 10.5%);
+        padding: 3px;
+        border-radius: 19px;
+        width: 77%;
+        height: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+      }
+
+      .card {
+        background-color: hsl(216, 50%, 16%);
+        border-radius: 11px;
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        -webkit-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+        -moz-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+        box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
+      }
+      }
+
+      /* .attribution {
+        font-size: 11px;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="main-container">
+      <div class="card">
+        <img class="main-image" src="images/image-equilibrium.jpg" alt="" />
+        <div class="under-theImage">
+          <div class="main-text">
+            <h3>Equilibrium #3429</h3>
+            <p>Our Equilibrium collection promotes balance and calm.</p>
+            <div class="info">
+              <h4>
+                <span
+                  ><img
+                    class="ethereum"
+                    src="images/icon-ethereum.svg"
+                    alt=""
+                  />
+                </span>
+                0.041 ETH
+              </h4>
+              <div class="mydays">
+                <img class="days" src="images/icon-clock.svg" alt="" />
+                <p>3 days left</p>
+              </div>
+            </div>
+            <hr />
+          </div>
+          <div class="last-paragraph">
+            <img class="image-avatar" src="images/image-avatar.png" alt="" />
+            <p>Creation of <span>Jules Wyvern</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by <a href="#">Your Name Here</a>.
+    </div> -->
+  </body>
+</html>
