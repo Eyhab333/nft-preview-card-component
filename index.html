@@ -11,7 +11,7 @@
     />
     <title>Frontend Mentor | NFT preview card component</title>
     <!--=================== normalize ======================-->
-    <!-- <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css" /> -->
+    <link rel="stylesheet" href="./node_modules/normalize.css/normalize.css" />
     <!--=================== google fonts ===================-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,10 +26,11 @@
         box-sizing: border-box;
       }
 
-      h3 {
+      h1 {
         color: white;
         margin-bottom: 20px;
         font-weight: 600;
+        font-size: 1.3rem;
       }
 
       h4,
@@ -70,13 +71,13 @@
         flex-direction: column;
       }
 
-      .main-container {
+      main {
         border: 22px solid hsl(217, 52%, 10.5%);
         background: hsl(217, 52%, 10.5%);
         padding: 3px;
         border-radius: 19px;
-        width: 27%;
-        height: 90%;
+        max-width: 25%;
+        height: 85%;
         display: flex;
         justify-content: center;
         align-items: flex-start;
@@ -85,21 +86,22 @@
       .card {
         background-color: hsl(216, 50%, 16%);
         border-radius: 11px;
-        width: 90%;
-        height: 90%;
+        max-width: 400px;
+        padding: 11px;
+        height: 100%;
         display: flex;
         justify-content: center;
         flex-direction: column;
         align-items: center;
-        -webkit-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
-        -moz-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+        -webkit-box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
+        -moz-box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
         box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
       }
 
       .main-image {
-        width: 90%;
-        height: auto;
-        margin-top: 17px;
+
+        max-width: 90%;
+        /* height: auto; */
         border-radius: 11px;
       }
 
@@ -151,34 +153,135 @@
         margin-right: 1rem;
       }
 
-
       @media (max-width: 375px) {
+        body {
+          background-color: hsl(217, 54%, 11%);
+          height: 100vh;
+          width: 100vw;
+          font-family: "Outfit", sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+
         .main-container {
-        border: 22px solid hsl(217, 52%, 10.5%);
-        background: hsl(217, 52%, 10.5%);
-        padding: 3px;
-        border-radius: 19px;
-        width: 77%;
-        height: 80%;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
+          border: 22px solid hsl(217, 52%, 10.5%);
+          background: hsl(217, 52%, 10.5%);
+          border-radius: 19px;
+          width: 89%;
+          /* height: 95%; */
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+        }
+
+        .card {
+          background-color: hsl(216, 50%, 16%);
+          border-radius: 11px;
+          width: 90%;
+          /* height: 99%; */
+          padding: 2%;
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          align-items: center;
+          -webkit-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+          -moz-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+          box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
+        }
+
+        .under-theImage {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          margin: 1px 9px 20px 19px;
+        }
       }
 
-      .card {
-        background-color: hsl(216, 50%, 16%);
-        border-radius: 11px;
-        width: 90%;
-        height: 90%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        -webkit-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
-        -moz-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
-        box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
+      /*====================== hover ==============================*/
+      .card__picture {
+        margin-bottom: 22px;
+        border-radius: 6px;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
       }
+
+      .card__picture::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: var(--cyan);
+        opacity: 0;
       }
+
+      .card__picture::after {
+        content: url("./img/icon-view.svg");
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        place-content: center;
+        opacity: 0%;
+      }
+
+      .card__picture:hover::before {
+        opacity: 60%;
+        transition: all 0.5s;
+      }
+
+      .card__picture:hover::after {
+        opacity: 100%;
+        transition: all 0.5s;
+      }
+
+      /*====================================================*/
+
+      /* @media (max-width: 575px) {
+        body {
+          background-color: hsl(217, 54%, 11%);
+          height: 100vh;
+          width: 100vw;
+          font-family: "Outfit", sans-serif;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+        }
+
+        .main-container {
+          border: 22px solid hsl(217, 52%, 10.5%);
+          background: hsl(217, 52%, 10.5%);
+          padding: 5%;
+          border-radius: 19px;
+          width: 89%;
+          height: 95%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-start;
+        }
+
+        .card {
+          background-color: hsl(216, 50%, 16%);
+          border-radius: 11px;
+          width: 90%;
+          height: 90%;
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+          -webkit-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+          -moz-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+          box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
+        }
+      } */
 
       /* .attribution {
         font-size: 11px;
@@ -190,12 +293,12 @@
     </style>
   </head>
   <body>
-    <div class="main-container">
+    <main>
       <div class="card">
         <img class="main-image" src="images/image-equilibrium.jpg" alt="" />
         <div class="under-theImage">
           <div class="main-text">
-            <h3>Equilibrium #3429</h3>
+            <h1>Equilibrium #3429</h1>
             <p>Our Equilibrium collection promotes balance and calm.</p>
             <div class="info">
               <h4>
@@ -221,7 +324,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </main>
 
     <!-- <div class="attribution">
       Challenge by
