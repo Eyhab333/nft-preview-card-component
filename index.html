@@ -27,10 +27,15 @@
       }
 
       h1 {
-        color: white;
+        color: hsl(0, 0%, 100%);
         margin-bottom: 20px;
         font-weight: 600;
         font-size: 1.3rem;
+      }
+
+      h1:hover {
+        cursor: pointer;
+        color: hsl(178, 100%, 50%);
       }
 
       h4,
@@ -57,7 +62,7 @@
       }
 
       span {
-        color: white;
+        color: hsl(0, 0%, 100%);
       }
 
       body {
@@ -76,20 +81,20 @@
         background: hsl(217, 52%, 10.5%);
         padding: 3px;
         border-radius: 19px;
-        max-width: 25%;
-        /* height: 85%; */
+        width: 25%;
+        max-width: 350px;
         display: flex;
-        
         justify-content: center;
         align-items: flex-start;
+        position: relative;
       }
 
       .card {
         background-color: hsl(216, 50%, 16%);
         border-radius: 11px;
+        width: 90%;
         max-width: 380px;
         padding: 11px;
-        height: 100%;
         display: flex;
         justify-content: center;
         flex-direction: column;
@@ -100,11 +105,45 @@
       }
 
       .main-image {
+        width: 99%;
+        max-width: 350px;
+        height: auto;
+        border-radius: 11px;
+        cursor: pointer;
+        opacity: 1;
+        display: block;
+        transition: 0.5s ease;
+        backface-visibility: hidden;
+      }
 
-        max-width: 99%;
-        /* height: auto; */
+      /*====================== main-image:hover ==============================*/
+
+      .middle {
+        transition: 0.5s ease;
+        opacity: 0;
+        position: absolute;
+        top: 28%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+
+      .main-image:hover {
+        opacity: 0.5;
+      }
+
+      .middle:hover {
+        opacity: 0.9;
+      }
+
+      .icon {
+        background-color: hsl(178, 100%, 50%, 0.5);
+        cursor: pointer;
+        padding: 93px 95px;
         border-radius: 11px;
       }
+
+      /*===========================================================*/
 
       .under-theImage {
         display: flex;
@@ -154,6 +193,15 @@
         margin-right: 1rem;
       }
 
+      a {
+        text-decoration: none;
+        color: hsl(0, 0%, 100%);
+      }
+
+      a:hover {
+        color: hsl(178, 100%, 50%);
+      }
+
       @media (max-width: 375px) {
         body {
           background-color: hsl(217, 54%, 11%);
@@ -166,12 +214,13 @@
           flex-direction: column;
         }
 
-        .main-container {
+        main {
           border: 22px solid hsl(217, 52%, 10.5%);
           background: hsl(217, 52%, 10.5%);
+          padding: 3px;
           border-radius: 19px;
-          width: 89%;
-          /* height: 95%; */
+          width: 85%;
+          max-width: 350px;
           display: flex;
           justify-content: center;
           align-items: flex-start;
@@ -181,14 +230,14 @@
           background-color: hsl(216, 50%, 16%);
           border-radius: 11px;
           width: 90%;
-          /* height: 99%; */
-          padding: 2%;
+          max-width: 380px;
+          padding: 11px;
           display: flex;
-          justify-content: space-between;
+          justify-content: center;
           flex-direction: column;
           align-items: center;
-          -webkit-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
-          -moz-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
+          -webkit-box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
+          -moz-box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
           box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
         }
 
@@ -197,106 +246,22 @@
           flex-direction: column;
           justify-content: center;
           align-items: center;
-          margin: 1px 9px 20px 19px;
+          margin: 1px 9px 20px 12px;
+          margin-top: 13px;
         }
       }
-
-      /*====================== hover ==============================*/
-      .card__picture {
-        margin-bottom: 22px;
-        border-radius: 6px;
-        overflow: hidden;
-        position: relative;
-        cursor: pointer;
-      }
-
-      .card__picture::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        background-color: var(--cyan);
-        opacity: 0;
-      }
-
-      .card__picture::after {
-        content: url("./img/icon-view.svg");
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 100%;
-        display: grid;
-        place-content: center;
-        opacity: 0%;
-      }
-
-      .card__picture:hover::before {
-        opacity: 60%;
-        transition: all 0.5s;
-      }
-
-      .card__picture:hover::after {
-        opacity: 100%;
-        transition: all 0.5s;
-      }
-
-      /*====================================================*/
-
-      /* @media (max-width: 575px) {
-        body {
-          background-color: hsl(217, 54%, 11%);
-          height: 100vh;
-          width: 100vw;
-          font-family: "Outfit", sans-serif;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-        }
-
-        .main-container {
-          border: 22px solid hsl(217, 52%, 10.5%);
-          background: hsl(217, 52%, 10.5%);
-          padding: 5%;
-          border-radius: 19px;
-          width: 89%;
-          height: 95%;
-          display: flex;
-          justify-content: center;
-          align-items: flex-start;
-        }
-
-        .card {
-          background-color: hsl(216, 50%, 16%);
-          border-radius: 11px;
-          width: 90%;
-          height: 90%;
-          display: flex;
-          justify-content: center;
-          flex-direction: column;
-          align-items: center;
-          -webkit-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
-          -moz-box-shadow: 0px 27px 12px 11px hsl(220, 53%, 7%);
-          box-shadow: 0px 19px 13px 13px hsl(218, 52%, 8%);
-        }
-      } */
-
-      /* .attribution {
-        font-size: 11px;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      } */
     </style>
   </head>
+
   <body>
     <main>
       <div class="card">
         <img class="main-image" src="images/image-equilibrium.jpg" alt="" />
+        <div class="middle">
+          <div class="icon">
+            <img src="images/icon-view.svg" alt="eye" />
+          </div>
+        </div>
         <div class="under-theImage">
           <div class="main-text">
             <h1>Equilibrium #3429</h1>
@@ -321,7 +286,9 @@
           </div>
           <div class="last-paragraph">
             <img class="image-avatar" src="images/image-avatar.png" alt="" />
-            <p>Creation of <span>Jules Wyvern</span></p>
+            <p>
+              Creation of <span> <a href="#">Jules Wyvern</a></span>
+            </p>
           </div>
         </div>
       </div>
